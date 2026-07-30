@@ -19,7 +19,13 @@ const siteConfig = {
   email: "Sunshinetech7@gmail.com",
   mapsQuery: "201+Hema+Durga+Complex+Chandanagar+Hyderabad+Telangana+500050",
   rating: { value: "5.0", count: 16, source: "Sulekha" },
-  social: { facebook: "#", instagram: "#", linkedin: "#", youtube: "#" },
+  social: {
+    facebook: "https://www.facebook.com/SunshineTechnoSystem",
+    youtube: "https://www.youtube.com/watch?v=BTNak9oqT-I&t=1s",
+    twitter: "https://twitter.com/sunshin33040518",
+    instagram: "#",
+    linkedin: "#"
+  },
 };
 
 const courses = [
