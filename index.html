@@ -120,12 +120,24 @@
     <!-- POPULAR COURSES -->
     <section class="section-py container-page" id="popular-courses">
       <div id="popular-courses-header"></div>
-      <div class="courses-grid" id="popular-courses-grid" style="margin-top:2.5rem"></div>
-      <div style="margin-top:2.5rem;text-align:center">
-        <a href="courses.html" class="btn btn-hero btn-lg" id="view-all-courses-btn">
-          View All Courses
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width:1rem;height:1rem"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
-        </a>
+
+      <!-- 2-Column Layout: Left Showcase Image + Right Course Cards Grid -->
+      <div class="popular-courses-grid-layout">
+        <!-- LEFT COLUMN: Large Raw Course Showcase Image (No Box Card) with AOS Scroll Entrance -->
+        <div class="popular-showcase-container showcase-aos-left" id="popular-showcase-left">
+          <img src="assets/course-showcase.png" alt="Sunshine Techno Course Showcase" class="popular-showcase-img" loading="lazy" />
+        </div>
+
+        <!-- RIGHT COLUMN: Popular Courses Cards Grid -->
+        <div>
+          <div class="courses-grid" id="popular-courses-grid"></div>
+          <div style="margin-top:2.5rem;text-align:center">
+            <a href="courses.html" class="btn btn-hero btn-lg" id="view-all-courses-btn">
+              View All Courses
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width:1rem;height:1rem"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+            </a>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -521,6 +533,24 @@
         ${c.cta ? `<a href="${c.cta.href}" class="btn btn-outline" style="margin-top:1.25rem;width:fit-content;display:inline-flex;align-items:center;gap:.375rem">${c.cta.label} <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width:1rem;height:1rem"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></a>` : ''}
       </div>
     `).join('');
+
+    // ---- Popular Courses Showcase AOS Intersection Observer ----
+    const showcaseLeft = document.getElementById('popular-showcase-left');
+    const popularSection = document.getElementById('popular-courses');
+    if (showcaseLeft && popularSection) {
+      const showcaseObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            showcaseLeft.classList.add('aos-animate');
+            setTimeout(() => {
+              showcaseLeft.classList.add('floating');
+            }, 950);
+            showcaseObserver.unobserve(popularSection);
+          }
+        });
+      }, { threshold: 0.15 });
+      showcaseObserver.observe(popularSection);
+    }
   </script>
 </body>
 </html>

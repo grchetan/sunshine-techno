@@ -291,20 +291,168 @@ function showToast(message, type = 'success') {
   setTimeout(() => toast.remove(), 3500);
 }
 
+// Helper for 2-column hand-drawn sketch illustration SVGs
+function getHeroSketchIllustration(type) {
+  switch (type) {
+    case 'courses':
+      return `
+        <svg class="about-hero-sketch-art" viewBox="0 0 420 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="210" cy="190" r="150" stroke="rgba(245,200,66,0.18)" stroke-width="2" stroke-dasharray="6 6" />
+          <path d="M 60 290 L 360 290" stroke="#f7f9fd" stroke-width="3.5" stroke-linecap="round" />
+          <path d="M 100 290 L 95 340 M 320 290 L 325 340" stroke="rgba(255,255,255,0.4)" stroke-width="2.5" />
+          <path d="M 140 290 L 155 210 L 265 210 L 280 290 Z" stroke="#f5c842" stroke-width="3" fill="rgba(245,200,66,0.06)" />
+          <rect x="160" y="218" width="100" height="62" rx="4" stroke="#a0c0f8" stroke-width="2" fill="rgba(14,23,41,0.7)" />
+          <path d="M 172 235 L 184 243 L 172 251" stroke="#f5c842" stroke-width="2.5" stroke-linecap="round" />
+          <line x1="192" y1="251" x2="215" y2="251" stroke="#a0c0f8" stroke-width="2.5" />
+          <circle cx="210" cy="115" r="32" stroke="#f7f9fd" stroke-width="3" fill="rgba(14,23,41,0.85)" />
+          <path d="M 175 115 A 35 35 0 0 1 245 115" stroke="#f5c842" stroke-width="4" stroke-linecap="round" />
+          <rect x="172" y="105" width="8" height="20" rx="3" fill="#f5c842" />
+          <rect x="240" y="105" width="8" height="20" rx="3" fill="#f5c842" />
+          <circle cx="198" cy="114" r="9" stroke="#f7f9fd" stroke-width="2" />
+          <circle cx="222" cy="114" r="9" stroke="#f7f9fd" stroke-width="2" />
+          <path d="M 203 128 Q 210 135 217 128" stroke="#f5c842" stroke-width="2.5" stroke-linecap="round" />
+          <path d="M 170 170 Q 210 145 250 170 L 260 230 L 160 230 Z" stroke="#3b6fd4" stroke-width="3" fill="rgba(59,111,212,0.18)" />
+          <text x="45" y="110" fill="#f5c842" font-size="28" font-family="'Kalam', cursive" opacity="0.9">{ }</text>
+          <text x="330" y="110" fill="#f5c842" font-size="28" font-family="'Kalam', cursive" opacity="0.9">&lt;/&gt;</text>
+        </svg>`;
+
+    case 'training':
+      return `
+        <svg class="about-hero-sketch-art" viewBox="0 0 420 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="210" cy="190" r="150" stroke="rgba(245,200,66,0.18)" stroke-width="2" stroke-dasharray="6 6" />
+          <rect x="70" y="160" width="120" height="90" rx="8" stroke="#a0c0f8" stroke-width="2.5" fill="rgba(14,23,41,0.6)" />
+          <path d="M 110 200 Q 130 180 150 200" stroke="#f5c842" stroke-width="2.5" stroke-linecap="round" />
+          <circle cx="130" cy="180" r="12" stroke="#f7f9fd" stroke-width="2" />
+          <rect x="220" y="130" width="140" height="110" rx="6" stroke="#f5c842" stroke-width="3" fill="rgba(245,200,66,0.06)" />
+          <path d="M 240 160 L 290 160 M 240 180 L 330 180 M 240 200 L 300 200" stroke="#a0c0f8" stroke-width="2" stroke-linecap="round" />
+          <path d="M 130 80 Q 130 50 150 50 Q 170 50 170 80 Q 170 100 150 120 Q 130 100 130 80 Z" stroke="#f5c842" stroke-width="2.5" fill="rgba(245,200,66,0.15)" />
+          <circle cx="150" cy="75" r="5" fill="#f5c842" />
+        </svg>`;
+
+    case 'why-us':
+      return `
+        <svg class="about-hero-sketch-art" viewBox="0 0 420 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="210" cy="190" r="150" stroke="rgba(245,200,66,0.18)" stroke-width="2" stroke-dasharray="6 6" />
+          <path d="M 160 140 L 260 140 L 250 220 Q 210 250 170 220 Z" stroke="#f5c842" stroke-width="3" fill="rgba(245,200,66,0.12)" />
+          <path d="M 160 160 Q 130 160 140 190 Q 150 210 170 205" stroke="#f5c842" stroke-width="2.5" />
+          <path d="M 260 160 Q 290 160 280 190 Q 270 210 250 205" stroke="#f5c842" stroke-width="2.5" />
+          <path d="M 210 240 L 210 280 M 180 280 L 240 280" stroke="#f7f9fd" stroke-width="3" stroke-linecap="round" />
+          <polygon points="210,80 220,105 245,108 225,125 232,150 210,135 188,150 195,125 175,108 200,105" stroke="#f5c842" stroke-width="2.5" fill="rgba(245,200,66,0.2)" />
+        </svg>`;
+
+    case 'reviews':
+      return `
+        <svg class="about-hero-sketch-art" viewBox="0 0 420 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="210" cy="190" r="150" stroke="rgba(245,200,66,0.18)" stroke-width="2" stroke-dasharray="6 6" />
+          <rect x="110" y="110" width="200" height="90" rx="12" stroke="#f5c842" stroke-width="3" fill="rgba(245,200,66,0.08)" />
+          <path d="M 160 200 L 150 230 L 180 200" stroke="#f5c842" stroke-width="2.5" fill="rgba(245,200,66,0.08)" />
+          <text x="135" y="160" fill="#f5c842" font-size="28" font-family="'Manrope', sans-serif" font-weight="bold">★ ★ ★ ★ ★</text>
+          <text x="155" y="185" fill="#f7f9fd" font-size="14" font-family="'Kalam', cursive">5.0 Sulekha Rating</text>
+          <circle cx="100" cy="240" r="28" stroke="#f7f9fd" stroke-width="2.5" />
+          <path d="M 90 248 Q 100 258 110 248" stroke="#f5c842" stroke-width="2.5" stroke-linecap="round" />
+        </svg>`;
+
+    case 'faq':
+      return `
+        <svg class="about-hero-sketch-art" viewBox="0 0 420 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="210" cy="190" r="150" stroke="rgba(245,200,66,0.18)" stroke-width="2" stroke-dasharray="6 6" />
+          <text x="160" y="210" fill="#f5c842" font-size="140" font-family="'Kalam', cursive" font-weight="bold" opacity="0.95">?</text>
+          <path d="M 290 120 A 22 22 0 1 0 278 145 L 302 145 A 22 22 0 0 0 290 120 Z" stroke="#f5c842" stroke-width="2.5" fill="rgba(245,200,66,0.15)" />
+        </svg>`;
+
+    case 'contact':
+      return `
+        <svg class="about-hero-sketch-art" viewBox="0 0 420 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="210" cy="190" r="150" stroke="rgba(245,200,66,0.18)" stroke-width="2" stroke-dasharray="6 6" />
+          <path d="M 190 120 Q 190 70 220 70 Q 250 70 250 120 Q 250 160 220 190 Q 190 160 190 120 Z" stroke="#f5c842" stroke-width="3" fill="rgba(245,200,66,0.15)" />
+          <circle cx="220" cy="115" r="10" fill="#f5c842" />
+          <rect x="70" y="190" width="120" height="80" rx="8" stroke="#a0c0f8" stroke-width="2.5" fill="rgba(14,23,41,0.6)" />
+          <path d="M 70 190 L 130 240 L 190 190" stroke="#f5c842" stroke-width="2" />
+        </svg>`;
+
+    default: // 'about'
+      return `
+        <svg class="about-hero-sketch-art" viewBox="0 0 420 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="210" cy="190" r="150" stroke="rgba(245,200,66,0.18)" stroke-width="2" stroke-dasharray="6 6" />
+          <path d="M 60 290 L 360 290" stroke="#f7f9fd" stroke-width="3.5" stroke-linecap="round" />
+          <path d="M 100 290 L 95 340 M 320 290 L 325 340" stroke="rgba(255,255,255,0.4)" stroke-width="2.5" />
+          <path d="M 140 290 L 155 210 L 265 210 L 280 290 Z" stroke="#f5c842" stroke-width="3" fill="rgba(245,200,66,0.06)" />
+          <rect x="160" y="218" width="100" height="62" rx="4" stroke="#a0c0f8" stroke-width="2" fill="rgba(14,23,41,0.7)" />
+          <circle cx="210" cy="115" r="32" stroke="#f7f9fd" stroke-width="3" fill="rgba(14,23,41,0.85)" />
+          <circle cx="198" cy="112" r="10" stroke="#f5c842" stroke-width="2.5" />
+          <circle cx="222" cy="112" r="10" stroke="#f5c842" stroke-width="2.5" />
+          <path d="M 202 128 Q 210 136 218 128" stroke="#f7f9fd" stroke-width="2.5" stroke-linecap="round" />
+          <text x="45" y="180" fill="#f5c842" font-size="28" font-family="'Kalam', cursive" opacity="0.9">{ }</text>
+          <text x="330" y="110" fill="#f5c842" font-size="28" font-family="'Kalam', cursive" opacity="0.9">&lt;/&gt;</text>
+        </svg>`;
+  }
+}
+
 // ============================================================
-// PAGE HERO
+// PAGE HERO (Hand-Drawn 2-Column Marker Sketch Theme)
 // ============================================================
-function renderPageHero(eyebrow, title, subtitle = '') {
+function renderPageHero(badge, titleLine1, titleLine2 = '', subtitle = '', illustrationType = 'about') {
+  let line1 = titleLine1;
+  let line2 = titleLine2;
+
+  // Handle flexible signature renderPageHero(badge, title, subtitle)
+  if (!line2 && subtitle === '') {
+    // line1 was passed as full title, split into two lines
+    const parts = line1.split(' ');
+    if (parts.length > 2) {
+      const mid = Math.ceil(parts.length / 2);
+      line1 = parts.slice(0, mid).join(' ');
+      line2 = parts.slice(mid).join(' ');
+    } else {
+      line2 = parts.pop() || '';
+      line1 = parts.join(' ') || line1;
+    }
+  }
+
+  const artSvg = getHeroSketchIllustration(illustrationType);
+
   return `
-    <section class="page-hero">
-      <div class="page-hero-bg">
-        <div class="page-hero-blob1"></div>
-        <div class="page-hero-blob2"></div>
+    <section class="about-hero-sketch" id="page-hero-sketch">
+      <div class="about-hero-glow1"></div>
+      <div class="about-hero-glow2"></div>
+
+      <!-- Edge Tech Doodles -->
+      <div class="about-doodles-left">
+        <svg viewBox="0 0 120 220" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M 20 20 L 40 10 L 60 20" />
+          <text x="10" y="55" fill="none" stroke="#f5c842" font-size="22" font-family="'Kalam', cursive">&lt;/&gt;</text>
+          <path d="M 20 80 Q 40 70 60 80 Q 80 90 100 80" />
+          <rect x="15" y="110" width="45" height="30" rx="4" />
+          <path d="M 25 125 L 35 125 M 42 125 L 50 125" />
+          <circle cx="80" cy="160" r="18" stroke-dasharray="4 3" />
+        </svg>
       </div>
-      <div class="container-page page-hero-content">
-        <div class="page-hero-eyebrow">${eyebrow}</div>
-        <h1>${title}</h1>
-        ${subtitle ? `<p class="page-hero-subtitle">${subtitle}</p>` : ''}
+
+      <div class="container-page about-hero-grid">
+        <!-- Left Column: Hand-drawn Marker Typography -->
+        <div>
+          <div class="about-hero-badge">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/></svg>
+            ${badge}
+          </div>
+
+          <h1 class="about-hero-title">
+            <span class="about-hero-title-line1">${line1}</span>
+            <span class="about-hero-title-line2">
+              ${line2}
+              <svg class="about-wavy-underline" viewBox="0 0 300 20" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 5 12 Q 25 3, 45 12 T 85 12 T 125 12 T 165 12 T 205 12 T 285 12 T 295 10" />
+              </svg>
+            </span>
+          </h1>
+
+          ${subtitle ? `<p class="about-hero-desc">${subtitle}</p>` : ''}
+        </div>
+
+        <!-- Right Column: Hand-Drawn Sketch Line-Art Artwork -->
+        <div class="about-hero-illustration-wrap">
+          ${artSvg}
+        </div>
       </div>
     </section>
   `;
@@ -450,26 +598,56 @@ function handleEnquirySubmit(e, id) {
   }, 900);
 }
 
+// Helper for course-specific background doodle
+function getCourseBgDoodle(title, category) {
+  const t = (title || '').toLowerCase();
+  const c = (category || '').toLowerCase();
+  
+  if (t.includes('python')) {
+    return `<svg class="course-card-doodle" viewBox="0 0 80 80" fill="none" stroke="currentColor"><path d="M 20 25 Q 30 15 45 20 Q 60 25 55 40 L 40 40 Q 25 40 25 55 Q 25 70 40 65 Q 55 60 60 45" stroke-width="2" stroke-linecap="round"/><text x="15" y="70" font-family="'Kalam', cursive" font-size="16" fill="#f5c842">{ }</text></svg>`;
+  } else if (t.includes('java') && t.includes('selenium')) {
+    return `<svg class="course-card-doodle" viewBox="0 0 80 80" fill="none" stroke="currentColor"><rect x="15" y="20" width="50" height="40" rx="4" stroke-width="2"/><line x1="15" y1="32" x2="65" y2="32" stroke-width="1.5"/><path d="M 35 45 L 42 52 L 55 38" stroke="#f5c842" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+  } else if (t.includes('java')) {
+    return `<svg class="course-card-doodle" viewBox="0 0 80 80" fill="none" stroke="currentColor"><path d="M 25 35 Q 20 20 30 15 Q 40 30 35 35 Z" stroke-width="2"/><path d="M 25 40 L 55 40 L 50 65 L 30 65 Z" stroke-width="2"/><path d="M 50 45 Q 62 45 60 55 Q 58 63 48 62" stroke-width="2"/><text x="10" y="30" font-family="'Kalam', cursive" font-size="20" fill="#f5c842">{ }</text></svg>`;
+  } else if (c.includes('data') || t.includes('ai') || t.includes('data')) {
+    return `<svg class="course-card-doodle" viewBox="0 0 80 80" fill="none" stroke="currentColor"><circle cx="25" cy="25" r="5" stroke-width="2"/><circle cx="55" cy="25" r="5" stroke-width="2"/><circle cx="40" cy="55" r="5" stroke-width="2"/><line x1="25" y1="25" x2="40" y2="55" stroke-width="1.5"/><line x1="55" y1="25" x2="40" y2="55" stroke-width="1.5"/><line x1="25" y1="25" x2="55" y2="25" stroke-width="1.5"/><path d="M 40 15 L 40 25" stroke="#f5c842" stroke-width="2"/></svg>`;
+  } else if (c.includes('cloud') || t.includes('aws') || t.includes('azure')) {
+    return `<svg class="course-card-doodle" viewBox="0 0 80 80" fill="none" stroke="currentColor"><path d="M 20 50 Q 15 38 28 32 Q 35 22 48 26 Q 58 20 68 30 Q 75 42 65 52 Z" stroke-width="2"/><rect x="28" y="55" width="24" height="12" rx="2" stroke-width="1.5"/><circle cx="33" cy="61" r="1.5" fill="#f5c842"/></svg>`;
+  } else if (c.includes('web') || t.includes('react') || t.includes('frontend')) {
+    return `<svg class="course-card-doodle" viewBox="0 0 80 80" fill="none" stroke="currentColor"><rect x="15" y="20" width="50" height="40" rx="4" stroke-width="2"/><text x="25" y="48" font-family="'Kalam', cursive" font-size="18" fill="#f5c842">&lt;/&gt;</text></svg>`;
+  } else if (c.includes('sap')) {
+    return `<svg class="course-card-doodle" viewBox="0 0 80 80" fill="none" stroke="currentColor"><ellipse cx="40" cy="25" rx="22" ry="8" stroke-width="2"/><path d="M 18 25 L 18 55 Q 40 65 62 55 L 62 25" stroke-width="2"/><path d="M 18 40 Q 40 50 62 40" stroke-width="1.8" stroke="#f5c842"/></svg>`;
+  }
+  return `<svg class="course-card-doodle" viewBox="0 0 80 80" fill="none" stroke="currentColor"><text x="20" y="50" font-family="'Kalam', cursive" font-size="24" fill="#f5c842">&lt;/&gt;</text></svg>`;
+}
+
 // ============================================================
 // COURSE CARD
 // ============================================================
 function renderCourseCard(course) {
   const iconSvg = courseIconSVGs[course.icon] || courseIconSVGs['code'];
+  const doodleSvg = getCourseBgDoodle(course.title, course.category);
   return `
     <article class="course-card">
+      <div class="course-card-doodle-wrap">${doodleSvg}</div>
       <div class="course-card-header">
         <div class="course-card-icon">${iconSvg}</div>
         <span class="course-badge">${course.category}</span>
       </div>
-      <h3>${course.title}</h3>
+      <h3 class="course-card-title">
+        <span>${course.title}</span>
+        <svg class="course-title-underline" viewBox="0 0 120 10" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 2 5 Q 30 1, 60 6 T 118 5" stroke="var(--sunshine)" stroke-width="3" fill="none" stroke-linecap="round" />
+        </svg>
+      </h3>
       <p class="course-card-desc">${course.description}</p>
       <p class="course-card-mode">${course.mode}</p>
       <div class="course-card-actions">
-        <a href="course-detail.html?slug=${course.slug}" class="btn btn-outline btn-sm">
-          View Course ${icons.arrowRight}
+        <a href="course-detail.html?slug=${course.slug}" class="btn btn-outline btn-sm btn-view-course">
+          View Course <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="btn-arrow"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
         </a>
-        <a href="contact.html" class="btn btn-sunshine btn-sm">
-          ${icons.messageSquare} Enquire
+        <a href="contact.html" class="btn btn-sunshine btn-sm btn-enquire">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="btn-chat-icon"><path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a.598.598 0 01-.743-.594c.005-.336.037-.67.097-1.002C3.588 17.755 3 15.006 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z"/></svg> Enquire
         </a>
       </div>
     </article>
