@@ -24,12 +24,12 @@
 
 .header-inner {
   display: flex;
-  height: 4.5rem;
+  height: 5rem;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
 }
-@media (min-width: 768px) { .header-inner { height: 5.75rem; } }
+@media (min-width: 768px) { .header-inner { height: 6.5rem; } }
 
 /* Logo Styling */
 .logo {
@@ -39,16 +39,16 @@
 }
 
 .logo-img {
-  height: 3.25rem;
+  height: 3.85rem;
   width: auto;
-  max-width: 18rem;
+  max-width: 20rem;
   object-fit: contain;
   display: block;
 }
 @media (min-width: 768px) {
   .logo-img {
-    height: 4.5rem;
-    max-width: 24rem;
+    height: 5.4rem;
+    max-width: 28rem;
   }
 }
 
