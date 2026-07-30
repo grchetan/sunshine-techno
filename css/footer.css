@@ -19,44 +19,15 @@
 .footer-logo {
   display: flex;
   align-items: center;
-  gap: 0.625rem;
-}
-.footer-logo-icon {
-  position: relative;
-  display: grid;
-  place-items: center;
-  height: 2.5rem;
-  width: 2.5rem;
-  border-radius: 0.75rem;
-  background: var(--gradient-hero);
   flex-shrink: 0;
 }
-.footer-logo-dot {
-  position: absolute;
-  top: -3px;
-  right: -3px;
-  height: 0.85rem;
-  width: 0.85rem;
-  border-radius: 50%;
-  background: var(--gradient-sunshine);
-}
-.footer-logo-letter {
-  font-family: 'Manrope', sans-serif;
-  font-size: 1.1rem;
-  font-weight: 900;
-  color: #fff;
-}
-.footer-logo-name {
-  font-family: 'Manrope', sans-serif;
-  font-size: 0.95rem;
-  font-weight: 800;
-  color: #fff;
-}
-.footer-logo-sub {
-  font-size: 0.6rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: rgba(255, 255, 255, 0.5);
+
+.footer-logo-img {
+  height: 3rem;
+  width: auto;
+  max-width: 15rem;
+  object-fit: contain;
+  display: block;
 }
 
 .footer-desc {

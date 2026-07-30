@@ -101,14 +101,7 @@ function renderHeader() {
     <header class="site-header" id="site-header">
       <div class="container-page header-inner">
         <a href="index.html" class="logo" aria-label="Sunshine Techno System Home">
-          <div class="logo-icon">
-            <div class="logo-dot"></div>
-            <span class="logo-letter">S</span>
-          </div>
-          <div class="logo-text">
-            <div class="logo-name">Sunshine Techno System</div>
-            <div class="logo-sub">Training Institute</div>
-          </div>
+          <img src="assets/logo.png" alt="Sunshine Techno System Logo" class="logo-img" />
         </a>
 
         <nav class="desktop-nav" aria-label="Main navigation">${navLinks}</nav>
@@ -180,16 +173,9 @@ function renderFooter() {
       <div class="container-page footer-grid">
 
         <div>
-          <div class="footer-logo">
-            <div class="footer-logo-icon">
-              <div class="footer-logo-dot"></div>
-              <span class="footer-logo-letter">S</span>
-            </div>
-            <div>
-              <div class="footer-logo-name">Sunshine Techno System</div>
-              <div class="footer-logo-sub">Training Institute</div>
-            </div>
-          </div>
+          <a href="index.html" class="footer-logo" aria-label="Sunshine Techno System Home">
+            <img src="assets/logo.png" alt="Sunshine Techno System Logo" class="footer-logo-img" />
+          </a>
           <p class="footer-desc">
             Practical IT &amp; software training in Hyderabad. Programming, testing, SAP, data &amp; cloud —
             classroom and live online.

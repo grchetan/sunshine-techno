@@ -619,6 +619,69 @@
 .search-input:focus { border-color: var(--brand-blue); box-shadow: 0 0 0 3px rgba(59,111,212,0.15); }
 
 
+/* --- ABOUT PAGE INFO CARDS --- */
+.info-cards-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 640px) { .info-cards-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .info-cards-grid { grid-template-columns: repeat(3, 1fr); } }
+
+.info-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: 1.25rem;
+  border: 1px solid var(--border);
+  background: #ffffff;
+  padding: 2rem 1.5rem;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-elevated);
+  border-color: rgba(59, 111, 212, 0.4);
+}
+
+.info-card-icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  height: 3.25rem;
+  width: 3.25rem;
+  border-radius: 0.875rem;
+  background: var(--gradient-hero);
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(26, 42, 74, 0.25);
+  margin-bottom: 1.25rem;
+  transition: transform 0.3s;
+}
+.info-card:hover .info-card-icon {
+  transform: scale(1.08);
+}
+.info-card-icon svg {
+  width: 1.5rem !important;
+  height: 1.5rem !important;
+}
+
+.info-card h3 {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: 0.625rem;
+}
+
+.info-card p {
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: var(--muted-fg);
+  flex: 1;
+}
+
 /* --- CONTACT PAGE CARDS & MAP --- */
 .contact-cards-grid {
   display: grid;
@@ -828,4 +891,249 @@
   height: 1.5rem !important;
   flex-shrink: 0 !important;
   color: var(--brand-blue);
+}
+
+/* =========================================================
+   WHY CHOOSE US — TECH GURU MASCOT LAYOUT & ANIMATION
+   ========================================================= */
+.why-us-layout {
+  display: grid;
+  gap: 2.5rem;
+  align-items: flex-start;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 1024px) {
+  .why-us-layout {
+    grid-template-columns: 1fr 340px;
+    gap: 3.5rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .why-us-layout {
+    grid-template-columns: 1fr 380px;
+    gap: 4rem;
+  }
+}
+
+/* Responsive features grid alongside mascot */
+.why-us-layout .features-grid {
+  grid-template-columns: 1fr;
+  margin-top: 2rem;
+}
+@media (min-width: 640px) {
+  .why-us-layout .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mascot Container */
+.why-us-mascot-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+@media (min-width: 1024px) {
+  .why-us-mascot-container {
+    position: sticky;
+    top: 6rem;
+    margin-top: 0;
+  }
+}
+
+/* Subtle background aura glow behind mascot (no visible rectangular box) */
+.mascot-aura {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 85%;
+  height: 85%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245, 200, 66, 0.22) 0%, rgba(59, 111, 212, 0.1) 55%, transparent 75%);
+  filter: blur(30px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Mascot Image Styling — Prominent Large Display */
+.mascot-img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 20px 35px rgba(14, 23, 41, 0.25)) drop-shadow(0 6px 18px rgba(245, 200, 66, 0.35));
+  animation: mascotFloat 5s ease-in-out infinite;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+@media (min-width: 1024px) {
+  .mascot-img {
+    max-width: 500px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .mascot-img {
+    max-width: 600px;
+  }
+}
+
+.mascot-img:hover {
+  filter: drop-shadow(0 25px 45px rgba(14, 23, 41, 0.3)) drop-shadow(0 8px 20px rgba(245, 200, 66, 0.5));
+}
+
+/* Floating animation: smooth 5px vertical float */
+@keyframes mascotFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* =========================================================
+   WHY SUNSHINE TECHNO EXISTS — STORY BANNER (Reference Style)
+   ========================================================= */
+.why-story-banner {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.75rem;
+  background: linear-gradient(135deg, #0b1323 0%, #14223d 50%, #1a2a4a 100%);
+  color: #fff;
+  padding: 2.5rem 1.5rem;
+  box-shadow: var(--shadow-elevated);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+@media (min-width: 768px) {
+  .why-story-banner {
+    padding: 3.5rem 3rem;
+  }
+}
+
+.why-story-layout {
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 1024px) {
+  .why-story-layout {
+    grid-template-columns: 1fr 440px;
+    gap: 3rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .why-story-layout {
+    grid-template-columns: 1fr 520px;
+    gap: 4rem;
+  }
+}
+
+.why-story-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.why-story-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--sunshine);
+  width: fit-content;
+}
+
+.why-story-title {
+  font-family: 'Manrope', sans-serif;
+  font-size: 2.25rem;
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--sunshine);
+}
+
+@media (min-width: 640px) {
+  .why-story-title {
+    font-size: 2.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .why-story-title {
+    font-size: 3.25rem;
+  }
+}
+
+.why-story-text-lg {
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.5;
+}
+
+.why-story-highlight-bold {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+}
+
+.why-story-highlight-accent {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--sunshine);
+  font-style: italic;
+  line-height: 1.5;
+}
+
+/* Feature Badges Grid under the story text */
+.why-story-badges {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 640px) {
+  .why-story-badges {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.why-story-badge-item {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #ffffff;
+  backdrop-filter: blur(8px);
+}
+
+.why-story-badge-item svg {
+  width: 1.25rem !important;
+  height: 1.25rem !important;
+  color: var(--sunshine);
+  flex-shrink: 0;
 }
