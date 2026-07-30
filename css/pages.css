@@ -375,7 +375,70 @@
 .process-arrow svg { width: 1.25rem !important; height: 1.25rem !important; }
 
 
-/* --- GRADIENT MODE CARDS (training.html) --- */
+/* --- GRADIENT & STANDARD MODE CARDS (index.html & training.html) --- */
+.modes-grid {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 640px) { .modes-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .modes-grid { grid-template-columns: repeat(3, 1fr); } }
+
+.mode-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: 1.25rem;
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, #ffffff 0%, #f7f9fd 100%);
+  padding: 2rem 1.5rem;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.mode-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-elevated);
+  border-color: rgba(59, 111, 212, 0.4);
+}
+
+.mode-icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  height: 3.25rem;
+  width: 3.25rem;
+  border-radius: 0.875rem;
+  background: var(--gradient-hero);
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(26,42,74,0.25);
+  margin-bottom: 1.25rem;
+  transition: transform 0.3s;
+}
+.mode-card:hover .mode-icon {
+  transform: scale(1.08);
+}
+.mode-icon svg {
+  width: 1.5rem !important;
+  height: 1.5rem !important;
+}
+
+.mode-card h3 {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: 0.625rem;
+}
+
+.mode-card p {
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: var(--muted-fg);
+  flex: 1;
+}
+
 .modes-grid-2 {
   display: grid;
   gap: 1.25rem;
