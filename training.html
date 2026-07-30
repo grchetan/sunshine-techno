@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Training Modes — Classroom &amp; Online | Sunshine Techno System</title>
+  <meta name="description" content="Choose classroom training at our Lingampally, Hyderabad center or live online instructor-led training with flexible weekday and weekend batches." />
+  <meta property="og:title" content="Training Modes — Classroom & Online | Sunshine Techno System" />
+  <meta property="og:description" content="Choose classroom training at our Lingampally, Hyderabad center or live online instructor-led training with flexible weekday and weekend batches." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#0e1729" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="header-placeholder"></div>
+
+  <main class="main-content" id="main">
+
+    <!-- PAGE HERO -->
+    <div id="page-hero-training"></div>
+
+    <!-- MODE CARDS -->
+    <section class="section-py" id="training-modes">
+      <div class="container-page">
+        <div class="modes-grid-2" id="modes-grid-2"></div>
+      </div>
+    </section>
+
+    <!-- HOW LEARNING WORKS -->
+    <section class="bg-muted-50 section-py" id="how-learning-works">
+      <div class="container-page">
+        <div id="process-header-training"></div>
+        <div class="process-grid" id="process-grid-training" style="margin-top:2.5rem"></div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section-py" id="training-cta">
+      <div class="container-page" style="text-align:center">
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);font-weight:800;color:var(--fg);margin-bottom:1rem">Ready to Get Started?</h2>
+        <p style="color:var(--muted-fg);font-size:1rem;max-width:40rem;margin:0 auto 2rem">
+          Talk to our team about upcoming batches, course details and the training option that works best for you.
+        </p>
+        <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:.75rem">
+          <a href="contact.html" class="btn btn-hero btn-lg" id="training-ask-btn">
+            Ask About Upcoming Batches
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width:1rem;height:1rem"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+          </a>
+          <a href="contact.html" class="btn btn-sunshine btn-lg" id="training-demo-btn">Book Free Demo</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <div id="floating-placeholder"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/components.js"></script>
+  <script>
+    renderHeader();
+    renderFooter();
+    renderFloatingActions();
+
+    // Page Hero
+    document.getElementById('page-hero-training').innerHTML = renderPageHero(
+      'Training',
+      'Learn Your Way',
+      'Classroom, live online and flexible batch options — designed for students and working professionals.'
+    );
+
+    // Mode cards (2-col grid with gradients)
+    const modeCards = [
+      {
+        icon: icons.mapPin,
+        title: 'Classroom Training',
+        desc: 'Learn directly with trainers at our Lingampally, Hyderabad training center. Ideal for hands-on lab practice and in-person doubt clarification.',
+        gradient: 'linear-gradient(135deg,#1e3a5f 0%,#0f2744 100%)'
+      },
+      {
+        icon: featureIconSVGs.laptop,
+        title: 'Live Online Training',
+        desc: 'Attend instructor-led sessions remotely with the same syllabus and interaction as classroom training.',
+        gradient: 'linear-gradient(135deg,#1a3a2e 0%,#0d2419 100%)'
+      },
+      {
+        icon: featureIconSVGs.clock,
+        title: 'Flexible Batches',
+        desc: 'Weekday, weekend or other batch options based on trainer and seat availability.',
+        gradient: 'linear-gradient(135deg,#3a1e4f 0%,#250d3a 100%)'
+      },
+      {
+        icon: featureIconSVGs.users,
+        title: 'Small Batches',
+        desc: 'Focused sessions that support individual attention and better doubt resolution.',
+        gradient: 'linear-gradient(135deg,#3a2e1e 0%,#2a1f0d 100%)'
+      },
+    ];
+
+    document.getElementById('modes-grid-2').innerHTML = modeCards.map(m => `
+      <div class="mode-card-gradient" style="background:${m.gradient}">
+        <div class="mode-card-icon-lg">${m.icon}</div>
+        <h3>${m.title}</h3>
+        <p>${m.desc}</p>
+      </div>
+    `).join('');
+
+    // How Learning Works
+    document.getElementById('process-header-training').innerHTML = renderSectionHeader(
+      'Learning Process', 'How Learning Works',
+      'A simple, structured path from course selection to skill readiness.'
+    );
+    const processSteps = [
+      { n: '01', title: 'Choose Your Course', desc: 'Pick a technology aligned with your goals and background.' },
+      { n: '02', title: 'Attend Demo / Consultation', desc: 'Meet the trainer, understand the syllabus and clarify doubts.' },
+      { n: '03', title: 'Learn + Practice', desc: 'Attend structured sessions with hands-on exercises and labs.' },
+      { n: '04', title: 'Build Skills & Prepare', desc: 'Work on live scenarios and prepare for opportunities.' },
+    ];
+    document.getElementById('process-grid-training').innerHTML = processSteps.map((s, i) => `
+      <div class="process-card">
+        <div class="process-card-top">
+          <span class="process-num text-gradient-sunshine">${s.n}</span>
+          <div class="process-line"></div>
+        </div>
+        <h3>${s.title}</h3>
+        <p>${s.desc}</p>
+        ${i < processSteps.length - 1 ? `<div class="process-arrow"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></div>` : ''}
+      </div>
+    `).join('');
+  </script>
+</body>
+</html>

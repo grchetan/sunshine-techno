@@ -1,0 +1,158 @@
+/* =========================================================
+   2. NAVBAR & HEADER STYLES
+   ========================================================= */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  width: 100%;
+  transition: background .3s, box-shadow .3s, border-color .3s;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid transparent;
+}
+
+.site-header.scrolled {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom-color: var(--border);
+  box-shadow: var(--shadow-card);
+}
+
+.header-inner {
+  display: flex;
+  height: 4rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+@media (min-width: 768px) { .header-inner { height: 5rem; } }
+
+/* Logo Styling */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  flex-shrink: 0;
+}
+.logo-icon {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 0.75rem;
+  background: var(--gradient-hero);
+  flex-shrink: 0;
+}
+.logo-dot {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  height: 0.85rem;
+  width: 0.85rem;
+  border-radius: 50%;
+  background: var(--gradient-sunshine);
+}
+.logo-letter {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: #fff;
+}
+.logo-text { line-height: 1.2; }
+.logo-name {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--navy);
+}
+.logo-sub {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted-fg);
+}
+
+/* Desktop Navigation */
+.desktop-nav {
+  display: none;
+  align-items: center;
+  gap: 0.25rem;
+}
+@media (min-width: 1024px) { .desktop-nav { display: flex; } }
+
+.nav-link {
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--muted-fg);
+  transition: color 0.2s, background 0.2s;
+}
+.nav-link:hover { color: var(--navy); background: var(--muted); }
+.nav-link.active { color: var(--navy); background: var(--muted); font-weight: 600; }
+
+/* Header CTA Group */
+.header-cta {
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+}
+@media (min-width: 768px) { .header-cta { display: flex; } }
+
+/* Mobile Hamburger Button */
+.hamburger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--navy);
+  transition: background 0.2s;
+}
+.hamburger:hover { background: var(--muted); }
+@media (min-width: 1024px) { .hamburger { display: none; } }
+.hamburger svg { width: 1.25rem; height: 1.25rem; }
+
+/* Mobile Navigation Drawer */
+.mobile-menu {
+  display: none;
+  border-top: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+.mobile-menu.open { display: block; }
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.75rem 0;
+}
+.mobile-nav-link {
+  display: block;
+  border-radius: 0.5rem;
+  padding: 0.625rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--foreground);
+  transition: background 0.2s, color 0.2s;
+}
+.mobile-nav-link:hover, .mobile-nav-link.active {
+  background: var(--muted);
+  color: var(--navy);
+  font-weight: 600;
+}
+.mobile-cta-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}

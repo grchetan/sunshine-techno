@@ -1,0 +1,15 @@
+/* =========================================================
+   SUNSHINE TECHNO SYSTEM — Master Stylesheet
+   Modularized Architecture for Easy Maintenance:
+   - css/variables.css  : Colors, Design Tokens, Base Resets & Global SVG Protection
+   - css/navbar.css     : Header, Navigation Bar & Mobile Menu
+   - css/footer.css     : Footer & Bottom Copyright Bar
+   - css/components.css : Buttons, Cards, Forms, Alerts, Toast & Accordions
+   - css/pages.css      : Page Sections, Hero Gradients & Breakpoint Media Queries
+   ========================================================= */
+
+@import url('variables.css');
+@import url('navbar.css');
+@import url('footer.css');
+@import url('components.css');
+@import url('pages.css');

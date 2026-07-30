@@ -9,6 +9,7 @@ lerna-debug.log*
 
 # Dependencies
 node_modules
+node_modules_old
 
 # Build output
 dist

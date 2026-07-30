@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Sunshine Techno System | IT Training in Hyderabad</title>
+  <meta name="description" content="Learn about Sunshine Techno System — an IT and software training institute in Lingampally, Hyderabad focused on practical learning and career-oriented training." />
+  <meta property="og:title" content="About Sunshine Techno System | IT Training in Hyderabad" />
+  <meta property="og:description" content="Learn about Sunshine Techno System — an IT and software training institute in Lingampally, Hyderabad focused on practical learning and career-oriented training." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#0e1729" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="header-placeholder"></div>
+
+  <main class="main-content" id="main">
+
+    <!-- PAGE HERO -->
+    <div id="page-hero-about"></div>
+
+    <!-- ABOUT TWO-COL -->
+    <section class="section-py" id="about-main">
+      <div class="container-page two-col">
+        <!-- Left: image -->
+        <div class="about-image-wrap">
+          <div class="about-img-frame">
+            <img src="assets/about-classroom.jpg" alt="Trainer teaching at Sunshine Techno System classroom in Hyderabad" width="1200" height="900" loading="lazy" />
+          </div>
+        </div>
+
+        <!-- Right: content -->
+        <div id="about-right-content"></div>
+      </div>
+    </section>
+
+    <!-- INFO CARDS -->
+    <section class="bg-muted-50 section-py-sm" id="about-info-cards">
+      <div class="container-page">
+        <div class="info-cards-grid" id="info-cards-grid"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <div id="floating-placeholder"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/components.js"></script>
+  <script>
+    renderHeader();
+    renderFooter();
+    renderFloatingActions();
+
+    // Page Hero
+    document.getElementById('page-hero-about').innerHTML = renderPageHero(
+      'About Us',
+      'Learn Technology the Practical Way',
+      'An IT and software training institute in Hyderabad focused on hands-on learning and career preparation.'
+    );
+
+    // About right content
+    const aboutPoints = [
+      'Experienced Trainers','Practical Learning','Real-Time Scenarios','Live Projects',
+      'Flexible Timings','Online & Classroom','Individual Attention','Career-Oriented Training'
+    ];
+    document.getElementById('about-right-content').innerHTML = `
+      <div style="display:flex;flex-direction:column;gap:1rem;font-size:1rem;line-height:1.7;color:var(--muted-fg)">
+        <p>Sunshine Techno System is an IT and software training institute serving students, freshers and working professionals in Hyderabad.</p>
+        <p>The institute focuses on practical learning, technical fundamentals, real-time scenarios and hands-on experience across programming, software testing, SAP, data science, cloud technologies and modern development tools.</p>
+        <p>Training is available through classroom and online learning options, allowing learners to choose flexible schedules that suit students and working professionals alike.</p>
+      </div>
+      <ul class="checklist" style="margin-top:1.5rem">
+        ${aboutPoints.map(p => `
+          <li class="checklist-item">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            ${p}
+          </li>`).join('')}
+      </ul>
+      <div style="margin-top:2rem;display:flex;flex-wrap:wrap;gap:.75rem">
+        <a href="courses.html" class="btn btn-hero btn-lg" id="about-explore-btn">
+          Explore Courses
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width:1rem;height:1rem"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+        </a>
+        <a href="contact.html" class="btn btn-outline btn-lg" id="about-talk-btn">Talk to Us</a>
+      </div>
+    `;
+
+    // Info Cards
+    const infoCards = [
+      {
+        icon: featureIconSVGs.graduationCap,
+        title: 'Our Approach',
+        desc: 'Concepts explained clearly, followed by hands-on practice, examples and doubt clarification.'
+      },
+      {
+        icon: icons.checkCircle,
+        title: 'Who We Train',
+        desc: 'Students, freshers and working professionals across programming, testing, SAP, data and cloud.'
+      },
+      {
+        icon: icons.mapPin,
+        title: 'Where We Are',
+        desc: siteConfig.address.line1 + ', ' + siteConfig.address.city + ' — ' + siteConfig.address.pin
+      },
+    ];
+    document.getElementById('info-cards-grid').innerHTML = infoCards.map(card => `
+      <div class="info-card">
+        <div class="info-card-icon">${card.icon}</div>
+        <h3>${card.title}</h3>
+        <p>${card.desc}</p>
+      </div>
+    `).join('');
+  </script>
+</body>
+</html>

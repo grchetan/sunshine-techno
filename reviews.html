@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Reviews | Sunshine Techno System, Hyderabad</title>
+  <meta name="description" content="Rated 5.0 on Sulekha based on 16 reviews. Read student feedback on Java, Selenium, SAP FICO and Software Testing training." />
+  <meta property="og:title" content="Student Reviews | Sunshine Techno System, Hyderabad" />
+  <meta property="og:description" content="Rated 5.0 on Sulekha based on 16 reviews. Read student feedback on Java, Selenium, SAP FICO and Software Testing training." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#0e1729" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="header-placeholder"></div>
+
+  <main class="main-content" id="main">
+
+    <!-- PAGE HERO -->
+    <div id="page-hero-reviews"></div>
+
+    <!-- REVIEWS SECTION -->
+    <section class="section-py" id="reviews-section">
+      <div class="container-page">
+
+        <!-- Rating summary -->
+        <div class="rating-summary" id="rating-summary"></div>
+
+        <!-- All reviews grid -->
+        <div class="reviews-grid" id="reviews-grid" style="margin-top:2.5rem"></div>
+
+        <!-- CTA -->
+        <div style="margin-top:2.5rem;text-align:center">
+          <a href="contact.html" class="btn btn-hero btn-lg" id="reviews-join-btn">Join Our Next Batch</a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <div id="floating-placeholder"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/components.js"></script>
+  <script>
+    renderHeader();
+    renderFooter();
+    renderFloatingActions();
+
+    // Page Hero
+    document.getElementById('page-hero-reviews').innerHTML = renderPageHero(
+      'Reviews',
+      'What Our Students Say',
+      'Rated ' + siteConfig.rating.value + ' on ' + siteConfig.rating.source + ' based on ' + siteConfig.rating.count + ' reviews.'
+    );
+
+    // Rating summary card
+    document.getElementById('rating-summary').innerHTML = `
+      <div class="rating-summary-inner">
+        <div class="rating-summary-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:2.5rem;height:2.5rem;color:#f59e0b">
+            <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd"/>
+          </svg>
+        </div>
+        <div class="rating-summary-info">
+          <div class="rating-summary-stars">${starsHTML()}</div>
+          <div class="rating-summary-value">${siteConfig.rating.value} / 5.0</div>
+          <div class="rating-summary-meta">Based on <strong>${siteConfig.rating.count} reviews</strong> on <strong>${siteConfig.rating.source}</strong></div>
+        </div>
+      </div>
+    `;
+
+    // All reviews
+    document.getElementById('reviews-grid').innerHTML = testimonials.map(t => `
+      <figure class="review-card">
+        <div class="review-stars">${starsHTML()}</div>
+        <blockquote class="review-quote">"${t.quote}"</blockquote>
+        <figcaption class="review-author">
+          <div class="review-avatar">${t.name.charAt(0)}</div>
+          <div>
+            <div class="review-name">${t.name}</div>
+            <div class="review-course">${t.course}</div>
+          </div>
+        </figcaption>
+      </figure>
+    `).join('');
+  </script>
+</body>
+</html>

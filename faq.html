@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ | Sunshine Techno System, Hyderabad</title>
+  <meta name="description" content="Answers to common questions about courses, batches, classroom and online training at Sunshine Techno System, Lingampally, Hyderabad." />
+  <meta property="og:title" content="FAQ | Sunshine Techno System, Hyderabad" />
+  <meta property="og:description" content="Answers to common questions about courses, batches, classroom and online training at Sunshine Techno System, Lingampally, Hyderabad." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#0e1729" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Do you provide classroom training?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Classroom training is available at our Lingampally, Hyderabad center for most courses." } },
+      { "@type": "Question", "name": "Is online training available?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Instructor-led live online training is offered for students and working professionals who prefer remote learning." } },
+      { "@type": "Question", "name": "Where is Sunshine Techno System located?", "acceptedAnswer": { "@type": "Answer", "text": "We are located at 2nd Floor, 201, Hema Durga Complex, Near BHEL X Road / Lingampally Bus Stop, Lingampally, Hyderabad — 500050." } },
+      { "@type": "Question", "name": "Can beginners join the courses?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Courses are designed to accommodate beginners, freshers and working professionals with different levels of prior experience." } },
+      { "@type": "Question", "name": "Do you provide practical training?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Training emphasises hands-on exercises, real-time scenarios and applied practice rather than theory alone." } },
+      { "@type": "Question", "name": "Are flexible batches available?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Weekday, weekend and other batch options are offered subject to trainer and seat availability." } },
+      { "@type": "Question", "name": "Which programming courses are available?", "acceptedAnswer": { "@type": "Answer", "text": "We offer Java, Python, C, C++, C#, React, Angular and additional programming and scripting courses." } },
+      { "@type": "Question", "name": "Do you provide software testing training?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Manual testing, Selenium automation, mobile testing, UFT, LoadRunner and JMeter are among the testing courses offered." } },
+      { "@type": "Question", "name": "Is SAP training available?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. SAP, SAP FICO, SAP MM, SAP ABAP and SAP HANA training are offered with a focus on practical scenarios." } },
+      { "@type": "Question", "name": "How can I enquire about course fees?", "acceptedAnswer": { "@type": "Answer", "text": "Please share your details through the enquiry form or contact us directly and our team will get in touch with the latest information." } },
+      { "@type": "Question", "name": "How do I book a demo class?", "acceptedAnswer": { "@type": "Answer", "text": "Use the 'Book Free Demo' button or the enquiry form. Our team will confirm the demo schedule based on the selected course." } },
+      { "@type": "Question", "name": "Do you provide career preparation support?", "acceptedAnswer": { "@type": "Answer", "text": "Where applicable we support resume preparation, mock tests, interview tips and technical doubt clarification alongside the core training." } }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div id="header-placeholder"></div>
+
+  <main class="main-content" id="main">
+
+    <!-- PAGE HERO -->
+    <div id="page-hero-faq"></div>
+
+    <!-- FAQ SECTION -->
+    <section class="section-py" id="faq-section">
+      <div class="container-page">
+
+        <!-- Accordion -->
+        <div class="accordion" id="faq-accordion" style="max-width:48rem;margin:0 auto"></div>
+
+        <!-- CTA Box -->
+        <div class="faq-cta-box" id="faq-cta-box" style="margin-top:3rem;max-width:48rem;margin-left:auto;margin-right:auto"></div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <div id="floating-placeholder"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/components.js"></script>
+  <script>
+    renderHeader();
+    renderFooter();
+    renderFloatingActions();
+
+    // Page Hero
+    document.getElementById('page-hero-faq').innerHTML = renderPageHero(
+      'FAQ',
+      'Frequently Asked Questions',
+      'Short, clear answers about our training, batches and courses.'
+    );
+
+    // Accordion - all FAQs
+    document.getElementById('faq-accordion').innerHTML = faqs.map((f, i) => `
+      <div class="accordion-item">
+        <button class="accordion-trigger" id="faq-trigger-${i}" aria-expanded="false" aria-controls="faq-content-${i}">
+          ${f.q}
+          <span class="accordion-icon">${icons.chevronDown}</span>
+        </button>
+        <div class="accordion-content" id="faq-content-${i}" role="region" aria-labelledby="faq-trigger-${i}">${f.a}</div>
+      </div>
+    `).join('');
+
+    initAccordions('#faq-accordion');
+
+    // CTA Box
+    document.getElementById('faq-cta-box').innerHTML = `
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:1rem;padding:2rem;text-align:center">
+        <h2 style="font-size:1.5rem;font-weight:800;color:var(--fg);margin-bottom:.75rem">Still have questions?</h2>
+        <p style="color:var(--muted-fg);font-size:.9375rem;margin-bottom:1.5rem">
+          Our team is happy to help with course details, batch schedules and any other enquiries.
+        </p>
+        <a href="contact.html" class="btn btn-hero btn-lg" id="faq-contact-btn">Contact Us</a>
+      </div>
+    `;
+  </script>
+</body>
+</html>

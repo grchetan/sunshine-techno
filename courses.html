@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IT &amp; Software Courses in Hyderabad | Sunshine Techno System</title>
+  <meta name="description" content="Explore Java, Python, Selenium, SAP, Data Science, AWS, React and more IT & software training courses at Sunshine Techno System, Lingampally, Hyderabad." />
+  <meta property="og:title" content="IT & Software Courses in Hyderabad | Sunshine Techno System" />
+  <meta property="og:description" content="Explore Java, Python, Selenium, SAP, Data Science, AWS, React and more IT & software training courses at Sunshine Techno System, Lingampally, Hyderabad." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#0e1729" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="header-placeholder"></div>
+
+  <main class="main-content" id="main">
+
+    <!-- PAGE HERO -->
+    <div id="page-hero-courses"></div>
+
+    <!-- COURSES SECTION -->
+    <section class="section-py" id="courses-section">
+      <div class="container-page">
+
+        <!-- Filter bar -->
+        <div class="filter-bar">
+          <div class="filter-tags" id="filter-tags"></div>
+          <div class="search-wrap">
+            <div class="search-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width:1rem;height:1rem"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/></svg>
+            </div>
+            <input class="search-input" id="courses-search" type="text" placeholder="Search courses..." aria-label="Search courses" />
+          </div>
+        </div>
+
+        <!-- Courses grid -->
+        <div class="courses-grid-3col" id="courses-grid" style="margin-top:2rem"></div>
+
+        <!-- Empty state -->
+        <p id="courses-empty" style="display:none;text-align:center;color:var(--muted-fg);margin-top:3rem;font-size:1rem">
+          No courses match your search.
+        </p>
+
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <div id="floating-placeholder"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/components.js"></script>
+  <script>
+    renderHeader();
+    renderFooter();
+    renderFloatingActions();
+
+    // Page Hero
+    document.getElementById('page-hero-courses').innerHTML = renderPageHero(
+      'Courses',
+      'Build In-Demand Tech Skills',
+      'Practical, career-focused training designed for students, freshers and working professionals.'
+    );
+
+    // Filter state
+    let currentFilter = 'All';
+    let searchQuery = '';
+
+    // Render filter tags
+    document.getElementById('filter-tags').innerHTML = courseCategories.map(cat => `
+      <button class="filter-tag${cat === 'All' ? ' active' : ''}" data-cat="${cat}" id="filter-tag-${cat.replace(/[^a-z0-9]/gi, '-').toLowerCase()}" aria-pressed="${cat === 'All'}">
+        ${cat}
+      </button>
+    `).join('');
+
+    // Filter function
+    function filterCourses() {
+      const filtered = courses.filter(c => {
+        const matchCat = currentFilter === 'All' || c.category === currentFilter;
+        const q = searchQuery.toLowerCase();
+        const matchSearch = !q || c.title.toLowerCase().includes(q) || c.category.toLowerCase().includes(q) || c.description.toLowerCase().includes(q);
+        return matchCat && matchSearch;
+      });
+
+      const grid = document.getElementById('courses-grid');
+      const empty = document.getElementById('courses-empty');
+
+      if (filtered.length === 0) {
+        grid.innerHTML = '';
+        empty.style.display = 'block';
+      } else {
+        grid.innerHTML = filtered.map(renderCourseCard).join('');
+        empty.style.display = 'none';
+      }
+    }
+
+    // Filter tag click
+    document.getElementById('filter-tags').addEventListener('click', e => {
+      const btn = e.target.closest('.filter-tag');
+      if (!btn) return;
+      currentFilter = btn.dataset.cat;
+      document.querySelectorAll('.filter-tag').forEach(b => {
+        b.classList.toggle('active', b.dataset.cat === currentFilter);
+        b.setAttribute('aria-pressed', b.dataset.cat === currentFilter);
+      });
+      filterCourses();
+    });
+
+    // Search input
+    document.getElementById('courses-search').addEventListener('input', e => {
+      searchQuery = e.target.value;
+      filterCourses();
+    });
+
+    // Initial render
+    filterCourses();
+  </script>
+</body>
+</html>
