@@ -1,0 +1,144 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Manrope", "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-navy: var(--navy);
+  --color-navy-deep: var(--navy-deep);
+  --color-brand-blue: var(--brand-blue);
+  --color-sunshine: var(--sunshine);
+  --color-sunshine-deep: var(--sunshine-deep);
+  --color-surface: var(--surface);
+}
+
+:root {
+  --radius: 0.875rem;
+
+  --navy-deep: oklch(0.19 0.05 260);
+  --navy: oklch(0.27 0.08 262);
+  --brand-blue: oklch(0.55 0.18 258);
+  --sunshine: oklch(0.83 0.16 82);
+  --sunshine-deep: oklch(0.72 0.18 55);
+  --surface: oklch(0.98 0.005 250);
+
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.19 0.03 260);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.19 0.03 260);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.19 0.03 260);
+  --primary: var(--navy);
+  --primary-foreground: oklch(0.99 0.003 250);
+  --secondary: var(--brand-blue);
+  --secondary-foreground: oklch(0.99 0.003 250);
+  --muted: oklch(0.965 0.008 250);
+  --muted-foreground: oklch(0.48 0.02 258);
+  --accent: var(--sunshine);
+  --accent-foreground: var(--navy-deep);
+  --destructive: oklch(0.6 0.22 27);
+  --destructive-foreground: oklch(0.99 0.003 250);
+  --border: oklch(0.92 0.01 258);
+  --input: oklch(0.92 0.01 258);
+  --ring: var(--brand-blue);
+
+  --gradient-hero: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 45%, var(--brand-blue) 100%);
+  --gradient-sunshine: linear-gradient(135deg, var(--sunshine) 0%, var(--sunshine-deep) 100%);
+  --gradient-soft: linear-gradient(180deg, oklch(0.985 0.008 250) 0%, oklch(1 0 0) 100%);
+  --shadow-card: 0 1px 2px oklch(0.19 0.03 260 / 0.04), 0 8px 24px -12px oklch(0.19 0.03 260 / 0.12);
+  --shadow-elevated: 0 4px 12px oklch(0.19 0.03 260 / 0.08), 0 24px 48px -20px oklch(0.27 0.08 262 / 0.25);
+  --shadow-glow: 0 0 0 1px oklch(0.83 0.16 82 / 0.3), 0 12px 40px -8px oklch(0.83 0.16 82 / 0.35);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
+
+@utility text-gradient-sunshine {
+  background: var(--gradient-sunshine);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility bg-gradient-hero {
+  background: var(--gradient-hero);
+}
+
+@utility bg-gradient-sunshine {
+  background: var(--gradient-sunshine);
+}
+
+@utility shadow-card {
+  box-shadow: var(--shadow-card);
+}
+
+@utility shadow-elevated {
+  box-shadow: var(--shadow-elevated);
+}
+
+@utility container-page {
+  width: 100%;
+  margin-inline: auto;
+  max-width: 80rem;
+  padding-inline: 1.25rem;
+  @media (min-width: 768px) {
+    padding-inline: 2rem;
+  }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@utility animate-float {
+  animation: float-slow 6s ease-in-out infinite;
+}
