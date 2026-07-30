@@ -197,6 +197,7 @@ function renderFooter() {
             <li><a href="courses.html" class="footer-link">Courses</a></li>
             <li><a href="reviews.html" class="footer-link">Reviews</a></li>
             <li><a href="contact.html" class="footer-link">Contact</a></li>
+            <li><a href="#" onclick="openCookiePreferences(event); return false;" class="footer-link">Cookie Settings</a></li>
           </ul>
         </div>
 
@@ -241,6 +242,7 @@ function renderFooter() {
           <div class="footer-bottom-links">
             <a href="#">Privacy Policy</a>
             <a href="#">Terms &amp; Conditions</a>
+            <a href="#" onclick="openCookiePreferences(event); return false;">Cookie Settings</a>
           </div>
         </div>
       </div>

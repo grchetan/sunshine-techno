@@ -1408,7 +1408,7 @@
 }
 
 /* =========================================================
-   HOMEPAGE POPULAR COURSES — DIRECT LARGE SHOWCASE IMAGE
+   HOMEPAGE POPULAR COURSES — COURSE SHOWCASE IMAGE LAYOUT
    ========================================================= */
 
 #popular-courses {
@@ -1418,81 +1418,88 @@
 .popular-courses-grid-layout {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.5rem;
-  align-items: center;
-  margin-top: 2rem;
+  gap: 2rem;
+  align-items: flex-start;
+  margin-top: 2.5rem;
 }
 
 @media (min-width: 1024px) {
   .popular-courses-grid-layout {
-    grid-template-columns: 460px 1fr;
-    gap: 1rem;
+    grid-template-columns: clamp(380px, 30vw, 460px) 1fr;
+    gap: 1.75rem;
   }
   .popular-courses-grid-layout .courses-grid {
     grid-template-columns: repeat(2, 1fr) !important;
-    gap: 1rem !important;
+    gap: 1.25rem !important;
   }
 }
 
 @media (min-width: 1280px) {
   .popular-courses-grid-layout {
-    grid-template-columns: 520px 1fr;
-    gap: 1.25rem;
+    grid-template-columns: clamp(420px, 32vw, 500px) 1fr;
+    gap: 2.25rem;
   }
 }
 
-/* Left Showcase Image Container (NO BOX, NO CARD) */
-.popular-showcase-container {
+/* Outer Wrapper for AOS Entrance Animation */
+.course-showcase-aos {
   position: relative;
   width: 100%;
-  max-width: 540px;
+  max-width: 500px;
   margin: 0 auto;
-}
-
-.popular-showcase-img {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  display: block;
-  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.12));
-  transition: transform 0.4s ease;
-}
-
-.popular-showcase-img:hover {
-  transform: scale(1.02);
-}
-
-/* AOS Entrance Animation for Left Showcase Image */
-.showcase-aos-left {
   opacity: 0;
-  transform: translateX(-50px) scale(0.96);
-  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateX(-120px) scale(0.92);
+  transition: opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1), transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+  display: none;
 }
 
-.showcase-aos-left.aos-animate {
+@media (min-width: 1024px) {
+  .course-showcase-aos {
+    display: block;
+    margin-top: 0.5rem;
+  }
+}
+
+.course-showcase-aos.aos-animate {
   opacity: 1;
   transform: translateX(0) scale(1);
 }
 
-/* Continuous Subtle Floating Animation (activates after entrance) */
-.showcase-aos-left.floating {
-  animation: showcaseFloat 5s ease-in-out infinite;
+/* Inner Showcase Image */
+.course-showcase-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.14));
+  transition: transform 0.35s ease;
 }
 
-@keyframes showcaseFloat {
+.course-showcase-aos.aos-animate .course-showcase-img.floating {
+  animation: showcaseIdleFloat 5s ease-in-out infinite;
+}
+
+@keyframes showcaseIdleFloat {
   0%, 100% {
-    transform: translateY(0);
+    transform: translateY(0px);
   }
   50% {
     transform: translateY(-8px);
   }
 }
 
+.course-showcase-img:hover {
+  transform: scale(1.025);
+}
+
+/* Respect prefers-reduced-motion */
 @media (prefers-reduced-motion: reduce) {
-  .showcase-aos-left {
+  .course-showcase-aos {
+    opacity: 1 !important;
+    transform: none !important;
     transition: none !important;
   }
-  .showcase-aos-left.floating {
+  .course-showcase-aos.aos-animate .course-showcase-img.floating {
     animation: none !important;
   }
 }

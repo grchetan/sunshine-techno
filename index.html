@@ -121,11 +121,11 @@
     <section class="section-py container-page" id="popular-courses">
       <div id="popular-courses-header"></div>
 
-      <!-- 2-Column Layout: Left Showcase Image + Right Course Cards Grid -->
+      <!-- Popular Courses Layout: Large Course Showcase Image Left + Course Cards Grid Right -->
       <div class="popular-courses-grid-layout">
-        <!-- LEFT COLUMN: Large Raw Course Showcase Image (No Box Card) with AOS Scroll Entrance -->
-        <div class="popular-showcase-container showcase-aos-left" id="popular-showcase-left">
-          <img src="assets/course-showcase.png" alt="Sunshine Techno Course Showcase" class="popular-showcase-img" loading="lazy" />
+        <!-- LEFT COLUMN: Large Course Showcase Image with AOS Entrance -->
+        <div class="course-showcase-aos" id="course-showcase-left">
+          <img src="assets/course-showcase.png" alt="Sunshine Techno Course Showcase" class="course-showcase-img" id="course-showcase-img" loading="lazy" />
         </div>
 
         <!-- RIGHT COLUMN: Popular Courses Cards Grid -->
@@ -321,6 +321,7 @@
 
   <script src="js/data.js"></script>
   <script src="js/components.js"></script>
+  <script src="js/cookie-consent.js"></script>
   <script src="js/cursor.js"></script>
   <script>
     // ---- Init shared ----
@@ -535,21 +536,22 @@
     `).join('');
 
     // ---- Popular Courses Showcase AOS Intersection Observer ----
-    const showcaseLeft = document.getElementById('popular-showcase-left');
+    const showcaseAos = document.getElementById('course-showcase-left');
+    const showcaseImg = document.getElementById('course-showcase-img');
     const popularSection = document.getElementById('popular-courses');
-    if (showcaseLeft && popularSection) {
-      const showcaseObserver = new IntersectionObserver((entries) => {
+    if (showcaseAos && popularSection) {
+      const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            showcaseLeft.classList.add('aos-animate');
+            showcaseAos.classList.add('aos-animate');
             setTimeout(() => {
-              showcaseLeft.classList.add('floating');
-            }, 950);
-            showcaseObserver.unobserve(popularSection);
+              if (showcaseImg) showcaseImg.classList.add('floating');
+            }, 1250);
+            observer.unobserve(popularSection);
           }
         });
       }, { threshold: 0.15 });
-      showcaseObserver.observe(popularSection);
+      observer.observe(popularSection);
     }
   </script>
 </body>
