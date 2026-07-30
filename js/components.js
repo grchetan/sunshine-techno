@@ -107,9 +107,6 @@ function renderHeader() {
         <nav class="desktop-nav" aria-label="Main navigation">${navLinks}</nav>
 
         <div class="header-cta">
-          <a href="tel:${siteConfig.phone}" class="btn btn-ghost btn-sm">
-            ${icons.phone} Call Now
-          </a>
           <a href="contact.html" class="btn btn-sunshine btn-sm">Enquire Now</a>
         </div>
 
@@ -122,8 +119,7 @@ function renderHeader() {
         <div class="container-page">
           <nav class="mobile-nav">${mobileLinks}</nav>
           <div class="mobile-cta-row" style="padding-bottom:.75rem">
-            <a href="tel:${siteConfig.phone}" class="btn btn-outline btn-sm">${icons.phone} Call</a>
-            <a href="contact.html" class="btn btn-sunshine btn-sm">Enquire</a>
+            <a href="contact.html" class="btn btn-sunshine btn-sm" style="width:100%">Enquire Now</a>
           </div>
         </div>
       </div>
@@ -225,10 +221,6 @@ function renderFooter() {
               </span>
             </li>
             <li class="footer-contact-item">
-              ${icons.phone}
-              <a href="tel:${siteConfig.phone}">${siteConfig.phoneDisplay}</a>
-            </li>
-            <li class="footer-contact-item">
               ${icons.mail}
               <a href="mailto:${siteConfig.email}" style="word-break:break-all">${siteConfig.email}</a>
             </li>
@@ -255,21 +247,14 @@ function renderFooter() {
 // RENDER FLOATING ACTIONS
 // ============================================================
 function renderFloatingActions() {
-  const waNum = siteConfig.whatsapp.replace(/\D/g, '');
-  const waUrl = `https://wa.me/${waNum}?text=${encodeURIComponent("Hi Sunshine Techno System, I'd like to enquire about a course.")}`;
   const html = `
     <div class="float-desktop">
-      <a href="${waUrl}" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" class="float-btn float-wa">
-        ${icons.messageCircle}
-      </a>
-      <a href="tel:${siteConfig.phone}" aria-label="Call now" class="float-btn float-call">
-        ${icons.phone}
+      <a href="contact.html" aria-label="Enquire now" class="float-btn float-wa" style="background:var(--sunshine);color:var(--navy-deep)">
+        ${icons.messageSquare}
       </a>
     </div>
-    <div class="mobile-bar">
-      <a href="tel:${siteConfig.phone}" class="mobile-bar-btn">${icons.phone} Call</a>
-      <a href="${waUrl}" target="_blank" rel="noopener noreferrer" class="mobile-bar-btn wa">${icons.messageCircle} WhatsApp</a>
-      <a href="contact.html" class="mobile-bar-btn enquire">Enquire</a>
+    <div class="mobile-bar" style="grid-template-columns: 1fr">
+      <a href="contact.html" class="mobile-bar-btn enquire" style="border-radius:0.75rem">Enquire Now</a>
     </div>
   `;
   document.getElementById('floating-placeholder').innerHTML = html;
