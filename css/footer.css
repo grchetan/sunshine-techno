@@ -46,16 +46,17 @@
 }
 
 .footer-logo-img {
-  height: 2.75rem;
+  height: 3.75rem;
   width: auto;
-  max-width: 14rem;
+  max-width: 20rem;
   object-fit: contain;
   display: block;
 }
 
 @media (min-width: 768px) {
   .footer-logo-img {
-    height: 3.25rem;
+    height: 4.75rem;
+    max-width: 26rem;
   }
 }
 
