@@ -8,38 +8,48 @@
   --radius: 0.875rem;
 
   /* Brand Colors */
-  --navy-deep:    #0e1729;
-  --navy:         #1a2a4a;
-  --brand-blue:   #3b6fd4;
-  --sunshine:     #f5c842;
-  --sunshine-deep:#d48c20;
-  --surface:      #f7f8fc;
+  --navy-deep: #0e1729;
+  --navy: #1a2a4a;
+  --brand-blue: #3b6fd4;
+  --sunshine: #f5c842;
+  --sunshine-deep: #d48c20;
+  --surface: #f7f8fc;
 
   /* Semantic Colors */
-  --background:   #ffffff;
-  --foreground:   #141e38;
-  --card:         #ffffff;
-  --muted:        #f0f2f8;
-  --muted-fg:     #6b7a99;
-  --border:       #e3e7f0;
-  --input:        #e3e7f0;
-  --destructive:  #d0342c;
-  --success:      #16a34a;
-  --warning:      #eab308;
+  --background: #ffffff;
+  --foreground: #141e38;
+  --card: #ffffff;
+  --muted: #f0f2f8;
+  --muted-fg: #6b7a99;
+  --border: #e3e7f0;
+  --input: #e3e7f0;
+  --destructive: #d0342c;
+  --success: #16a34a;
+  --warning: #eab308;
 
   /* Gradients */
-  --gradient-hero:     linear-gradient(135deg, #0e1729 0%, #1a2a4a 45%, #3b6fd4 100%);
+  --gradient-hero: linear-gradient(
+    135deg,
+    #0e1729 0%,
+    #1a2a4a 45%,
+    #3b6fd4 100%
+  );
   --gradient-sunshine: linear-gradient(135deg, #f5c842 0%, #d48c20 100%);
-  --gradient-soft:     linear-gradient(180deg, #f4f6fb 0%, #ffffff 100%);
+  --gradient-soft: linear-gradient(180deg, #f4f6fb 0%, #ffffff 100%);
 
   /* Shadows */
-  --shadow-card:     0 1px 2px rgba(20,30,56,.04), 0 8px 24px -12px rgba(20,30,56,.12);
-  --shadow-elevated: 0 4px 12px rgba(20,30,56,.08), 0 24px 48px -20px rgba(26,42,74,.25);
-  --shadow-glow:     0 0 0 1px rgba(245,200,66,.3), 0 12px 40px -8px rgba(245,200,66,.35);
+  --shadow-card:
+    0 1px 2px rgba(20, 30, 56, 0.04), 0 8px 24px -12px rgba(20, 30, 56, 0.12);
+  --shadow-elevated:
+    0 4px 12px rgba(20, 30, 56, 0.08), 0 24px 48px -20px rgba(26, 42, 74, 0.25);
+  --shadow-glow:
+    0 0 0 1px rgba(245, 200, 66, 0.3), 0 12px 40px -8px rgba(245, 200, 66, 0.35);
 }
 
 /* Reset & Box Model */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -61,7 +71,40 @@ body {
   overflow-x: hidden;
 }
 
-h1, h2, h3, h4, h5, h6 {
+/* =========================================================
+   CUSTOM THEME SCROLLBAR STYLES (Navy & Sunshine Theme)
+   ========================================================= */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f0f3fa;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #1a2a4a 0%, #3b6fd4 100%);
+  border-radius: 999px;
+  border: 2px solid #f0f3fa;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #f5c842 0%, #d48c20 100%);
+}
+
+/* Firefox Scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #3b6fd4 #f0f3fa;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: 'Manrope', 'Inter', ui-sans-serif, sans-serif;
   letter-spacing: -0.02em;
   line-height: 1.15;
@@ -83,7 +126,8 @@ button {
   font-family: inherit;
 }
 
-ul, ol {
+ul,
+ol {
   list-style: none;
 }
 
@@ -140,7 +184,11 @@ svg {
   max-width: 80rem;
   padding-inline: 1.25rem;
 }
-@media (min-width: 768px) { .container-page { padding-inline: 2rem; } }
+@media (min-width: 768px) {
+  .container-page {
+    padding-inline: 2rem;
+  }
+}
 
 /* Utility Text Classes */
 .text-gradient-sunshine {

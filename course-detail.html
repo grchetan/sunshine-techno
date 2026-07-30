@@ -1,54 +1,64 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Course Details | Sunshine Techno System</title>
-  <meta name="description" content="Detailed course information — syllabus overview, training mode and enquiry for IT courses at Sunshine Techno System, Hyderabad." />
-  <meta property="og:title" content="Course Details | Sunshine Techno System" />
-  <meta property="og:description" content="Detailed course information at Sunshine Techno System, Hyderabad." />
-  <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="theme-color" content="#0e1729" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
-</head>
-<body>
-  <div id="header-placeholder"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Course Details | Sunshine Techno System</title>
+    <meta
+      name="description"
+      content="Detailed course information — syllabus overview, training mode and enquiry for IT courses at Sunshine Techno System, Hyderabad."
+    />
+    <meta
+      property="og:title"
+      content="Course Details | Sunshine Techno System"
+    />
+    <meta
+      property="og:description"
+      content="Detailed course information at Sunshine Techno System, Hyderabad."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#0e1729" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div id="header-placeholder"></div>
 
-  <main class="main-content" id="main">
+    <main class="main-content" id="main">
+      <!-- Dynamic content injected by JS -->
+      <div id="course-detail-root"></div>
+    </main>
 
-    <!-- Dynamic content injected by JS -->
-    <div id="course-detail-root"></div>
+    <div id="footer-placeholder"></div>
+    <div id="floating-placeholder"></div>
 
-  </main>
+    <script src="js/data.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/cookie-consent.js"></script>
+    <script src="js/cursor.js"></script>
+    <script>
+      renderHeader();
+      renderFooter();
+      renderFloatingActions();
 
-  <div id="footer-placeholder"></div>
-  <div id="floating-placeholder"></div>
+      const root = document.getElementById('course-detail-root');
 
-  <script src="js/data.js"></script>
-  <script src="js/components.js"></script>
-  <script src="js/cookie-consent.js"></script>
-  <script src="js/cursor.js"></script>
-  <script>
-    renderHeader();
-    renderFooter();
-    renderFloatingActions();
+      // Read slug from URL
+      const params = new URLSearchParams(window.location.search);
+      const slug = params.get('slug');
 
-    const root = document.getElementById('course-detail-root');
+      // Find course
+      const course = courses.find((c) => c.slug === slug);
 
-    // Read slug from URL
-    const params = new URLSearchParams(window.location.search);
-    const slug = params.get('slug');
-
-    // Find course
-    const course = courses.find(c => c.slug === slug);
-
-    if (!course) {
-      // 404 state
-      root.innerHTML = `
+      if (!course) {
+        // 404 state
+        root.innerHTML = `
         <section class="page-hero">
           <div class="page-hero-bg">
             <div class="page-hero-blob1"></div>
@@ -69,20 +79,32 @@
           </div>
         </section>
       `;
-    } else {
-      // Update page title
-      document.title = course.title + ' Training | Sunshine Techno System, Hyderabad';
-      document.querySelector('meta[name="description"]').setAttribute(
-        'content',
-        course.title + ' training at Sunshine Techno System — ' + course.description + ' Available as ' + course.mode + '.'
-      );
+      } else {
+        // Update page title
+        document.title =
+          course.title + ' Training | Sunshine Techno System, Hyderabad';
+        document
+          .querySelector('meta[name="description"]')
+          .setAttribute(
+            'content',
+            course.title +
+              ' training at Sunshine Techno System — ' +
+              course.description +
+              ' Available as ' +
+              course.mode +
+              '.',
+          );
 
-      const iconSvg = courseIconSVGs[course.icon] || courseIconSVGs['code'];
+        const iconSvg = courseIconSVGs[course.icon] || courseIconSVGs['code'];
 
-      // Related courses (same category, max 4, exclude current)
-      const related = courses.filter(c => c.category === course.category && c.slug !== course.slug).slice(0, 4);
+        // Related courses (same category, max 4, exclude current)
+        const related = courses
+          .filter(
+            (c) => c.category === course.category && c.slug !== course.slug,
+          )
+          .slice(0, 4);
 
-      root.innerHTML = `
+        root.innerHTML = `
         <!-- PAGE HERO -->
         ${renderPageHero(course.category, course.title, course.description)}
 
@@ -141,12 +163,14 @@
                   </ul>
                 </div>
 
-                <div style="margin-top:1.75rem;display:flex;flex-wrap:wrap;gap:.75rem">
-                  <a href="courses.html" class="btn btn-outline" id="back-courses-link">
-                    ← All Courses
+                <div style="margin-top:2rem;display:flex;flex-wrap:wrap;align-items:center;gap:1rem">
+                  <a href="courses.html" class="btn btn-outline btn-md" id="back-courses-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width:1rem;height:1rem"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/></svg>
+                    All Courses
                   </a>
-                  <a href="contact.html" class="btn btn-sunshine" id="course-detail-enquire-btn">
-                    ${icons.messageSquare} Enquire About This Course
+                  <a href="contact.html" class="btn btn-sunshine btn-md" id="course-detail-enquire-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width:1.125rem;height:1.125rem"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"/></svg>
+                    Enquire About This Course
                   </a>
                 </div>
               </div>
@@ -165,35 +189,49 @@
         </section>
 
         <!-- RELATED COURSES -->
-        ${related.length > 0 ? `
+        ${
+          related.length > 0
+            ? `
         <section class="bg-muted-50 section-py" id="related-courses">
           <div class="container-page">
             <div id="related-courses-header"></div>
             <div class="courses-grid-3col" id="related-courses-grid" style="margin-top:2rem"></div>
           </div>
         </section>
-        ` : ''}
+        `
+            : ''
+        }
       `;
 
-      // Render enquiry form
-      renderEnquiryForm('enquiry-form-course-detail');
+        // Render enquiry form
+        renderEnquiryForm('enquiry-form-course-detail');
 
-      // Pre-select course in form if possible
-      const courseSelect = document.getElementById('ef-course-enquiry-form-course-detail');
-      if (courseSelect) {
-        const opt = Array.from(courseSelect.options).find(o => o.value === course.title);
-        if (opt) opt.selected = true;
-      }
-
-      // Related courses
-      if (related.length > 0) {
-        document.getElementById('related-courses-header').innerHTML = renderSectionHeader(
-          course.category, 'Related Courses',
-          'Other ' + course.category + ' training courses you might be interested in.'
+        // Pre-select course in form if possible
+        const courseSelect = document.getElementById(
+          'ef-course-enquiry-form-course-detail',
         );
-        document.getElementById('related-courses-grid').innerHTML = related.map(renderCourseCard).join('');
+        if (courseSelect) {
+          const opt = Array.from(courseSelect.options).find(
+            (o) => o.value === course.title,
+          );
+          if (opt) opt.selected = true;
+        }
+
+        // Related courses
+        if (related.length > 0) {
+          document.getElementById('related-courses-header').innerHTML =
+            renderSectionHeader(
+              course.category,
+              'Related Courses',
+              'Other ' +
+                course.category +
+                ' training courses you might be interested in.',
+            );
+          document.getElementById('related-courses-grid').innerHTML = related
+            .map(renderCourseCard)
+            .join('');
+        }
       }
-    }
-  </script>
-</body>
+    </script>
+  </body>
 </html>

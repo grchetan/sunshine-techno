@@ -17,7 +17,8 @@ const siteConfig = {
   phoneDisplay: '',
   whatsapp: '',
   email: 'admin@sunshinetechnosystem',
-  mapsQuery: '201,+2nd+Floor,+Hema+Durga+Complex,+Chandanagar,+Hyderabad,+Telangana+500050',
+  mapsQuery:
+    '201,+2nd+Floor,+Hema+Durga+Complex,+Chandanagar,+Hyderabad,+Telangana+500050',
   rating: { value: '5.0', count: 16, source: 'Sulekha' },
   social: {
     facebook: 'https://www.facebook.com/SunshineTechnoSystem',

@@ -1,75 +1,103 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact Sunshine Techno System | Lingampally, Hyderabad</title>
-  <meta name="description" content="Contact Sunshine Techno System at Lingampally, Hyderabad for IT training enquiries, demo bookings and course details. Classroom + online training available." />
-  <meta property="og:title" content="Contact Sunshine Techno System | Lingampally, Hyderabad" />
-  <meta property="og:description" content="Contact Sunshine Techno System at Lingampally, Hyderabad for IT training enquiries, demo bookings and course details. Classroom + online training available." />
-  <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="theme-color" content="#0e1729" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Kalam:wght@400;700&family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
-</head>
-<body>
-  <div id="header-placeholder"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Sunshine Techno System | Lingampally, Hyderabad</title>
+    <meta
+      name="description"
+      content="Contact Sunshine Techno System at Lingampally, Hyderabad for IT training enquiries, demo bookings and course details. Classroom + online training available."
+    />
+    <meta
+      property="og:title"
+      content="Contact Sunshine Techno System | Lingampally, Hyderabad"
+    />
+    <meta
+      property="og:description"
+      content="Contact Sunshine Techno System at Lingampally, Hyderabad for IT training enquiries, demo bookings and course details. Classroom + online training available."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#0e1729" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Kalam:wght@400;700&family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div id="header-placeholder"></div>
 
-  <main class="main-content" id="main">
+    <main class="main-content" id="main">
+      <!-- PAGE HERO -->
+      <div id="page-hero-contact"></div>
 
-    <!-- PAGE HERO -->
-    <div id="page-hero-contact"></div>
+      <!-- CONTACT SECTION -->
+      <section class="section-py" id="contact-section">
+        <div class="container-page two-col-contact">
+          <!-- LEFT: Info + Map -->
+          <div id="contact-info-col"></div>
 
-    <!-- CONTACT SECTION -->
-    <section class="section-py" id="contact-section">
-      <div class="container-page two-col-contact">
-
-        <!-- LEFT: Info + Map -->
-        <div id="contact-info-col"></div>
-
-        <!-- RIGHT: Enquiry Form -->
-        <div>
-          <h2 style="font-size:1.5rem;font-weight:800;color:var(--fg);margin-bottom:.5rem">Send an Enquiry</h2>
-          <p style="color:var(--muted-fg);font-size:.9375rem;margin-bottom:1.5rem">
-            Fill in the form and our team will get back to you with course details and batch schedules.
-          </p>
-          <div id="enquiry-form-contact"></div>
+          <!-- RIGHT: Enquiry Form -->
+          <div>
+            <h2
+              style="
+                font-size: 1.5rem;
+                font-weight: 800;
+                color: var(--fg);
+                margin-bottom: 0.5rem;
+              "
+            >
+              Send an Enquiry
+            </h2>
+            <p
+              style="
+                color: var(--muted-fg);
+                font-size: 0.9375rem;
+                margin-bottom: 1.5rem;
+              "
+            >
+              Fill in the form and our team will get back to you with course
+              details and batch schedules.
+            </p>
+            <div id="enquiry-form-contact"></div>
+          </div>
         </div>
+      </section>
+    </main>
 
-      </div>
-    </section>
+    <div id="footer-placeholder"></div>
+    <div id="floating-placeholder"></div>
 
-  </main>
+    <script src="js/data.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/cookie-consent.js"></script>
+    <script src="js/cursor.js"></script>
+    <script>
+      renderHeader();
+      renderFooter();
+      renderFloatingActions();
 
-  <div id="footer-placeholder"></div>
-  <div id="floating-placeholder"></div>
+      // Page Hero
+      document.getElementById('page-hero-contact').innerHTML = renderPageHero(
+        'CONTACT US',
+        'Start Your Tech',
+        'Learning Journey',
+        'Reach out for course details, batch schedules, demo bookings or any questions.',
+        'contact',
+      );
 
-  <script src="js/data.js"></script>
-  <script src="js/components.js"></script>
-  <script src="js/cookie-consent.js"></script>
-  <script src="js/cursor.js"></script>
-  <script>
-    renderHeader();
-    renderFooter();
-    renderFloatingActions();
+      // Google Maps directions URL
+      const mapsDirectionsUrl =
+        'https://www.google.com/maps/dir/?api=1&destination=' +
+        encodeURIComponent(
+          '201, 2nd Floor, Hema Durga Complex, Chandanagar, Hyderabad, Telangana 500050',
+        );
 
-    // Page Hero
-    document.getElementById('page-hero-contact').innerHTML = renderPageHero(
-      'CONTACT US',
-      'Start Your Tech',
-      'Learning Journey',
-      'Reach out for course details, batch schedules, demo bookings or any questions.',
-      'contact'
-    );
-
-    // Google Maps directions URL
-    const mapsDirectionsUrl = 'https://www.google.com/maps/dir/?api=1&destination=' + encodeURIComponent('201, 2nd Floor, Hema Durga Complex, Chandanagar, Hyderabad, Telangana 500050');
-
-    // Contact info col
-    document.getElementById('contact-info-col').innerHTML = `
+      // Contact info col
+      document.getElementById('contact-info-col').innerHTML = `
       <div class="contact-info-card">
         <h2 style="font-size:1.5rem;font-weight:800;color:var(--fg);margin-bottom:1.5rem">${siteConfig.name}</h2>
 
@@ -118,8 +146,8 @@
       </div>
     `;
 
-    // Enquiry form
-    renderEnquiryForm('enquiry-form-contact');
-  </script>
-</body>
+      // Enquiry form
+      renderEnquiryForm('enquiry-form-contact');
+    </script>
+  </body>
 </html>

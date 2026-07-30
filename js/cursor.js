@@ -19,10 +19,14 @@
   let currentY = -100;
 
   // Track mouse position
-  window.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-  }, { passive: true });
+  window.addEventListener(
+    'mousemove',
+    (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    },
+    { passive: true },
+  );
 
   // Smooth RAF physics loop (60 FPS)
   function animateCursor() {
@@ -34,20 +38,28 @@
   requestAnimationFrame(animateCursor);
 
   // 2. Interactive Element Hover Detection (Expand Cursor Ring)
-  const interactiveSelector = 'a, button, .btn, input, select, textarea, .course-card, .feature-card, .accordion-trigger, .filter-tag, .social-btn, .float-btn';
+  const interactiveSelector =
+    'a, button, .btn, input, select, textarea, .course-card, .feature-card, .accordion-trigger, .filter-tag, .social-btn, .float-btn';
 
-  document.addEventListener('mouseover', (e) => {
-    if (e.target.closest(interactiveSelector)) {
-      follower.classList.add('active');
-    }
-  }, { passive: true });
+  document.addEventListener(
+    'mouseover',
+    (e) => {
+      if (e.target.closest(interactiveSelector)) {
+        follower.classList.add('active');
+      }
+    },
+    { passive: true },
+  );
 
-  document.addEventListener('mouseout', (e) => {
-    if (e.target.closest(interactiveSelector)) {
-      follower.classList.remove('active');
-    }
-  }, { passive: true });
-
+  document.addEventListener(
+    'mouseout',
+    (e) => {
+      if (e.target.closest(interactiveSelector)) {
+        follower.classList.remove('active');
+      }
+    },
+    { passive: true },
+  );
 
   // 3. Click Ripple & Particle Sparks Effect
   document.addEventListener('click', (e) => {
@@ -82,6 +94,4 @@
 
     setTimeout(() => ripple.remove(), 500);
   });
-
-
 })();

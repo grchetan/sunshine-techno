@@ -17,7 +17,9 @@
   border-radius: 1.25rem;
   box-shadow: 0 20px 40px -10px rgba(14, 23, 41, 0.22);
   padding: 1.25rem 1.5rem;
-  transition: opacity 0.45s ease-out, transform 0.45s ease-out;
+  transition:
+    opacity 0.45s ease-out,
+    transform 0.45s ease-out;
   pointer-events: none;
   visibility: hidden;
 }
@@ -156,7 +158,9 @@
   z-index: 10000;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
   display: grid;
   place-items: center;
   padding: 1rem;
@@ -306,7 +310,7 @@
 
 .cookie-slider:before {
   position: absolute;
-  content: "";
+  content: '';
   height: 1.125rem;
   width: 1.125rem;
   left: 0.1875rem;

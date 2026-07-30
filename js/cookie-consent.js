@@ -13,7 +13,7 @@
     analytics: false,
     preferences: false,
     marketing: false,
-    timestamp: null
+    timestamp: null,
   };
 
   // Get consent from localStorage
@@ -41,7 +41,7 @@
         analytics: Boolean(state.analytics),
         preferences: Boolean(state.preferences),
         marketing: Boolean(state.marketing),
-        timestamp: new Date().toISOString()
+        timestamp: new Date().toISOString(),
       };
       localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
       applyConsentHooks(payload);
@@ -193,49 +193,67 @@
     const modal = document.getElementById('sunshine-cookie-modal');
 
     // Accept All Button
-    document.getElementById('btn-cookie-accept-all')?.addEventListener('click', () => {
-      saveConsent({ analytics: true, preferences: true, marketing: true });
-      hideBanner();
-      hideModal();
-    });
-
-    // Reject Non-Essential Button
-    document.getElementById('btn-cookie-reject-optional')?.addEventListener('click', () => {
-      saveConsent({ analytics: false, preferences: false, marketing: false });
-      hideBanner();
-      hideModal();
-    });
-
-    // Modal Reject Button
-    document.getElementById('btn-cookie-modal-reject')?.addEventListener('click', () => {
-      saveConsent({ analytics: false, preferences: false, marketing: false });
-      hideBanner();
-      hideModal();
-    });
-
-    // Manage Preferences Button
-    document.getElementById('btn-cookie-manage-prefs')?.addEventListener('click', () => {
-      openModal();
-    });
-
-    // Modal Save Preferences Button
-    document.getElementById('btn-cookie-save-prefs')?.addEventListener('click', () => {
-      const analyticsVal = document.getElementById('toggle-cookie-analytics').checked;
-      const preferencesVal = document.getElementById('toggle-cookie-preferences').checked;
-      const marketingVal = document.getElementById('toggle-cookie-marketing').checked;
-
-      saveConsent({
-        analytics: analyticsVal,
-        preferences: preferencesVal,
-        marketing: marketingVal
+    document
+      .getElementById('btn-cookie-accept-all')
+      ?.addEventListener('click', () => {
+        saveConsent({ analytics: true, preferences: true, marketing: true });
+        hideBanner();
+        hideModal();
       });
 
-      hideBanner();
-      hideModal();
-    });
+    // Reject Non-Essential Button
+    document
+      .getElementById('btn-cookie-reject-optional')
+      ?.addEventListener('click', () => {
+        saveConsent({ analytics: false, preferences: false, marketing: false });
+        hideBanner();
+        hideModal();
+      });
+
+    // Modal Reject Button
+    document
+      .getElementById('btn-cookie-modal-reject')
+      ?.addEventListener('click', () => {
+        saveConsent({ analytics: false, preferences: false, marketing: false });
+        hideBanner();
+        hideModal();
+      });
+
+    // Manage Preferences Button
+    document
+      .getElementById('btn-cookie-manage-prefs')
+      ?.addEventListener('click', () => {
+        openModal();
+      });
+
+    // Modal Save Preferences Button
+    document
+      .getElementById('btn-cookie-save-prefs')
+      ?.addEventListener('click', () => {
+        const analyticsVal = document.getElementById(
+          'toggle-cookie-analytics',
+        ).checked;
+        const preferencesVal = document.getElementById(
+          'toggle-cookie-preferences',
+        ).checked;
+        const marketingVal = document.getElementById(
+          'toggle-cookie-marketing',
+        ).checked;
+
+        saveConsent({
+          analytics: analyticsVal,
+          preferences: preferencesVal,
+          marketing: marketingVal,
+        });
+
+        hideBanner();
+        hideModal();
+      });
 
     // Modal Close Button & Backdrop Click
-    document.getElementById('btn-cookie-modal-close')?.addEventListener('click', hideModal);
+    document
+      .getElementById('btn-cookie-modal-close')
+      ?.addEventListener('click', hideModal);
     modal?.addEventListener('click', (e) => {
       if (e.target === modal) hideModal();
     });
@@ -268,11 +286,14 @@
 
     // Populate toggles with current saved or default values
     const toggleAnalytics = document.getElementById('toggle-cookie-analytics');
-    const togglePreferences = document.getElementById('toggle-cookie-preferences');
+    const togglePreferences = document.getElementById(
+      'toggle-cookie-preferences',
+    );
     const toggleMarketing = document.getElementById('toggle-cookie-marketing');
 
     if (toggleAnalytics) toggleAnalytics.checked = Boolean(current.analytics);
-    if (togglePreferences) togglePreferences.checked = Boolean(current.preferences);
+    if (togglePreferences)
+      togglePreferences.checked = Boolean(current.preferences);
     if (toggleMarketing) toggleMarketing.checked = Boolean(current.marketing);
 
     if (modal) {
@@ -313,5 +334,4 @@
       applyConsentHooks(currentConsent);
     }
   }
-
 })();

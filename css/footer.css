@@ -122,7 +122,9 @@
   padding: 0.25rem 0;
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.7);
-  transition: color 0.2s ease, transform 0.2s ease;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
   text-decoration: none;
 }
 
