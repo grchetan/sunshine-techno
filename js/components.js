@@ -109,7 +109,7 @@ function renderHeader() {
     <header class="site-header" id="site-header">
       <div class="container-page header-inner">
         <a href="index.html" class="logo" aria-label="Sunshine Techno System Home">
-          <img src="assets/logo.png" alt="Sunshine Techno System Logo" class="logo-img" />
+          <img src="assets/sunshine-logo1ACV.png" alt="Sunshine Techno System Logo" class="logo-img" />
         </a>
 
         <nav class="desktop-nav" aria-label="Main navigation">${navLinks}</nav>
@@ -178,7 +178,7 @@ function renderFooter() {
 
         <div>
           <a href="index.html" class="footer-logo" aria-label="Sunshine Techno System Home">
-            <img src="assets/logo.png" alt="Sunshine Techno System Logo" class="footer-logo-img" />
+            <img src="assets/sunshine-logo1ACV.png" alt="Sunshine Techno System Logo" class="footer-logo-img" />
           </a>
           <p class="footer-desc">
             Practical IT &amp; software training in Hyderabad. Programming, testing, SAP, data &amp; cloud —
@@ -493,7 +493,7 @@ function renderEnquiryForm(containerId) {
         </div>
         <div class="form-field">
           <label class="form-label" for="ef-phone-${containerId}">Phone Number</label>
-          <input class="form-input" id="ef-phone-${containerId}" name="phone" type="tel" inputmode="tel" placeholder="+91 98765 43210" autocomplete="tel" />
+          <input class="form-input" id="ef-phone-${containerId}" name="phone" type="tel" inputmode="tel" placeholder="Your phone number" autocomplete="tel" />
           <p class="form-error" id="ef-phone-err-${containerId}" style="display:none"></p>
         </div>
         <div class="form-field full-col">
