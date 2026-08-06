@@ -53,6 +53,8 @@
   max-width: 22rem;
   object-fit: contain;
   display: block;
+  border-radius: 0.75rem;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
 }
 
 @media (min-width: 768px) {
